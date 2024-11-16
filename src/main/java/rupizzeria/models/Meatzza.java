@@ -1,5 +1,7 @@
 package rupizzeria.models;
 
+//meatzza pizza making and pricing
+
 public class Meatzza extends Pizza {
 
     public Meatzza(Crust crust, Size size) {
@@ -12,12 +14,18 @@ public class Meatzza extends Pizza {
 
     @Override
     public double price() {
-        switch (size) {
-            case SMALL: return 17.99;
-            case MEDIUM: return 19.99;
-            case LARGE: return 21.99;
-            default: return 0;
-        }
+        double subtotal = switch(size) {
+            case SMALL -> 17.99;
+            case MEDIUM -> 19.99;
+            case LARGE -> 21.99;
+        };
+
+        return subtotal;
+    }
+
+    @Override
+    public String toString() {
+        return "Meatzza Pizza";
     }
 }
 

@@ -4,7 +4,6 @@ module rupizzeria.rupizzeria {
 
 
     opens rupizzeria.rupizzeria to javafx.fxml;
-    exports rupizzeria.rupizzeria;
     exports rupizzeria;
     opens rupizzeria to javafx.fxml;
 }

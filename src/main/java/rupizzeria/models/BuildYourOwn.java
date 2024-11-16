@@ -1,9 +1,6 @@
 package rupizzeria.models;
 
 public class BuildYourOwn extends Pizza {
-    private static final double BASE_PRICE_SMALL = 8.99;
-    private static final double BASE_PRICE_MEDIUM = 10.99;
-    private static final double BASE_PRICE_LARGE = 12.99;
     private static final double TOPPING_PRICE = 1.69;
 
     public BuildYourOwn(Crust crust, Size size) {
@@ -14,6 +11,9 @@ public class BuildYourOwn extends Pizza {
         if (toppings.size() < 7) {
             toppings.add(topping);
         }
+        else {
+            System.out.println("You can only add up to 7 toppings.");
+        }
     }
 
     public void removeTopping(Topping topping) {
@@ -22,13 +22,29 @@ public class BuildYourOwn extends Pizza {
 
     @Override
     public double price() {
-        double basePrice;
-        switch (size) {
-            case SMALL: basePrice = BASE_PRICE_SMALL; break;
-            case MEDIUM: basePrice = BASE_PRICE_MEDIUM; break;
-            case LARGE: basePrice = BASE_PRICE_LARGE; break;
-            default: basePrice = 0;
-        }
-        return basePrice + (TOPPING_PRICE * toppings.size());
+        double sizeprice = size.getBasePriceSize();
+        double subtotal = sizeprice + (TOPPING_PRICE * toppings.size());
+        return subtotal;
     }
+
+    @Override
+    public String toString() {
+        return "Build Your Own Pizza";
+    }
+
+
+
+  /*  public static void main(String[] args) { //testing the class
+        BuildYourOwn byo = new BuildYourOwn(Crust.PAN, Size.MEDIUM);
+        byo.addTopping(Topping.SAUSAGE);
+        byo.addTopping(Topping.PEPPERONI);
+        byo.addTopping(Topping.GREEN_PEPPER);
+        byo.addTopping(Topping.ONION);
+        byo.addTopping(Topping.MUSHROOM);
+        byo.addTopping(Topping.OLIVE);
+        byo.addTopping(Topping.PINEAPPLE);
+        System.out.println(byo.price());
+    }
+
+   */
 }

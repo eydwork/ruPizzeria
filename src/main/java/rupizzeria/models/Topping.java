@@ -1,5 +1,7 @@
 package rupizzeria.models;
 
+//Topping options
+
 public enum Topping {
     SAUSAGE,
     PEPPERONI,

@@ -1,5 +1,7 @@
 package rupizzeria.models;
 
+//deluxe pizza making and pricing
+
 public class Deluxe extends Pizza {
 
     public Deluxe(Crust crust, Size size) {
@@ -13,11 +15,18 @@ public class Deluxe extends Pizza {
 
     @Override
     public double price() {
-        switch (size) {
-            case SMALL: return 16.99;
-            case MEDIUM: return 18.99;
-            case LARGE: return 20.99;
-            default: return 0;
-        }
+        double subtotal = switch(size) {
+            case SMALL -> 16.99;
+            case MEDIUM -> 18.99;
+            case LARGE -> 20.99;
+        };
+
+        return subtotal;
     }
+
+    @Override
+    public String toString() {
+        return "Deluxe Pizza";
+    }
+
 }

@@ -1,5 +1,7 @@
 package rupizzeria.models;
 
+//Crust options
+
 public enum Crust {
     DEEP_DISH,
     BROOKLYN,
