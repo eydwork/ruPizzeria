@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="878.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rupizzeria.controller.PizzaViewController">
+   <fx:include source="menu-bar-view.fxml" />
+
+   <Text layoutX="250.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Build Your Pizza">
+      <font>
+         <Font name="Cooper Black" size="30.0" />
+      </font>
+   </Text>
+   <Text layoutX="35.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Choose a Pizza Style:">
+      <font>
+         <Font name="Cambria" size="20.0" />
+      </font>
+   </Text>
+   <RadioButton fx:id="chicagoRadioButton" layoutX="39.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleStyleSelection" prefHeight="20.0" prefWidth="127.0" scaleX="0.75" scaleY="0.75" text="Chicago Style">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <RadioButton fx:id="newyorkRadioButton" layoutX="35.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleStyleSelection" prefHeight="20.0" prefWidth="150.0" scaleX="0.75" scaleY="0.75" text="New York Style">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <Text layoutX="35.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. Choose a Pizza Type">
+      <font>
+         <Font name="Cambria" size="20.0" />
+      </font>
+   </Text>
+   <RadioButton fx:id="deluxeRadioButton" layoutX="40.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleTypeSelection" scaleX="0.75" scaleY="0.75" text="Deluxe">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <RadioButton fx:id="bbqchkRadioButton" layoutX="33.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleTypeSelection" prefHeight="20.0" prefWidth="115.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" text="BBQ Chicken">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <RadioButton fx:id="meatzzaRadioButton" layoutX="40.0" layoutY="307.0" mnemonicParsing="false" onAction="#handleTypeSelection" prefHeight="20.0" prefWidth="81.0" scaleX="0.75" scaleY="0.75" text="Meatzza">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <RadioButton fx:id="byoRadioButton" layoutX="19.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleTypeSelection" prefHeight="20.0" prefWidth="248.0" scaleX="0.75" scaleY="0.75" text="Build Your Own (up to 7 toppings)">
+      <font>
+         <Font name="Cambria" size="15.0" />
+      </font>
+   </RadioButton>
+   <CheckBox fx:id="sausageCheckBox" layoutX="40.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Sausage">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="onionCheckBox" layoutX="40.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Onion">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="pepperoniCheckBox" layoutX="40.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Pepperoni">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="greenPepperCheckBox" layoutX="40.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Green Pepper">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="mushroomCheckBox" layoutX="40.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Mushroom">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="bbqchkCheckBox" layoutX="40.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="BBQ Chicken">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="provoloneCheckBox" layoutX="40.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Provolone">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="cheddarCheckBox" layoutX="170.0" layoutY="374.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Cheddar">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="baconCheckBox" layoutX="170.0" layoutY="445.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Bacon">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="beefCheckBox" layoutX="170.0" layoutY="398.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Beef">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="hamCheckBox" layoutX="170.0" layoutY="422.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Ham">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="oliveCheckBox" layoutX="170.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Olive">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <CheckBox fx:id="pineappleCheckBox" layoutX="170.0" layoutY="495.0" mnemonicParsing="false" onAction="#handleToppingCheckBox" text="Pineapple">
+      <font>
+         <Font name="Cambria" size="12.0" />
+      </font>
+   </CheckBox>
+   <Separator layoutX="364.0" layoutY="135.0" orientation="VERTICAL" prefHeight="392.0" prefWidth="13.0" />
+   <Separator layoutX="24.0" layoutY="197.0" prefHeight="19.0" prefWidth="321.0" />
+   <Text layoutX="413.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. Select a Pizza Size:">
+      <font>
+         <Font name="Cambria" size="20.0" />
+      </font>
+   </Text>
+   <Separator layoutX="406.0" layoutY="187.0" prefHeight="11.0" prefWidth="453.0" />
+   <Text layoutX="536.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizza Visualization">
+      <font>
+         <Font name="Cambria" size="20.0" />
+      </font>
+   </Text>
+   <ImageView fx:id="pizzaImageView" fitHeight="221.0" fitWidth="241.0" layoutX="414.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true" />
+   <TextArea fx:id="toppingsListTextArea" layoutX="728.0" layoutY="241.0" prefHeight="172.0" prefWidth="134.0" promptText="Toppings" />
+   <Text layoutX="736.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal:">
+      <font>
+         <Font name="Cambria" size="20.0" />
+      </font>
+   </Text>
+   <TextArea fx:id="subtotalTextArea" layoutX="729.0" layoutY="449.0" prefHeight="39.0" prefWidth="134.0" promptText="\$0.00" />
+   <Button fx:id="submitOrderButton" layoutX="381.0" layoutY="505.0" mnemonicParsing="false" onAction="#submitOrderButton" prefHeight="17.0" prefWidth="143.0" text="Add Pizza">
+      <font>
+         <Font name="Cambria" size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="clearOrderButton" layoutX="723.0" layoutY="503.0" mnemonicParsing="false" onAction="#clearOrderButton" prefHeight="23.0" prefWidth="143.0" text="Clear Order">
+      <font>
+         <Font name="Cambria" size="18.0" />
+      </font>
+   </Button>
+   <TextArea fx:id="outputTextArea" layoutX="26.0" layoutY="554.0" prefHeight="294.0" prefWidth="861.0" />
+   <ComboBox fx:id="sizeComboBox" layoutX="622.0" layoutY="134.0" prefHeight="30.0" prefWidth="150.0" />
+   <Button fx:id="continueButton" layoutX="550.0" layoutY="505.0" mnemonicParsing="false" onAction="#continueButton" prefHeight="23.0" prefWidth="143.0" text="Continue">
+      <font>
+         <Font name="Cambria" size="18.0" />
+      </font>
+   </Button>
+</AnchorPane>

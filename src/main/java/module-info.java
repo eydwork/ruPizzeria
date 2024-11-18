@@ -3,7 +3,8 @@ module rupizzeria.rupizzeria {
     requires javafx.fxml;
 
 
-    opens rupizzeria.rupizzeria to javafx.fxml;
+    opens rupizzeria to javafx.fxml, javafx.graphics;
+    exports rupizzeria.controller;
+    opens rupizzeria.controller to javafx.fxml, javafx.graphics;
     exports rupizzeria;
-    opens rupizzeria to javafx.fxml;
 }

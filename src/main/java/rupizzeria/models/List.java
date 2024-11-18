@@ -98,6 +98,13 @@ public class List<E> implements Iterable<E> { //general list class that can be u
         return (Iterator<E>) new ListIterator();
     }
 
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            objects[i] = null;
+        }
+        size = 0;
+    }
+
     // Inner class implementing Iterator for appointments
     private class ListIterator implements Iterator<E> {
         private int currentIndex = 0;

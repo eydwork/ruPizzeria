@@ -1,5 +1,7 @@
 package rupizzeria.models;
 
+import java.util.ArrayList;
+
 public class Order {
     private static int orderCounter = 1; // Static counter to generate unique order numbers
     private int number;                  // Unique order number
@@ -13,6 +15,10 @@ public class Order {
 
     public int getOrderNumber() { //used to get order number
         return number;
+    }
+
+    public List<OrderItem> getItems() { //used to get items
+        return items;
     }
 
     /**
@@ -71,15 +77,4 @@ public class Order {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        Order order = new Order();
-        order.addPizza(new Deluxe(Crust.DEEP_DISH, Size.LARGE), 2);
-        order.addPizza(new Meatzza(Crust.STUFFED, Size.SMALL), 1);
-        System.out.println(order);
-
-        Order order2 = new Order();
-        order2.addPizza(new BBQChicken(Crust.PAN, Size.MEDIUM), 3);
-        order2.addPizza(new BuildYourOwn(Crust.HAND_TOSSED, Size.LARGE), 1);
-        System.out.println(order2);
-    }
 }

@@ -3,19 +3,29 @@ package rupizzeria.models;
 //sizes and prices for BYO pizza
 
 public enum Size {
-    SMALL(8.99),
-    MEDIUM(10.99),
-    LARGE(12.99);
+    SMALL, MEDIUM, LARGE;
 
-    private final double basePriceSize; //base price for size without any toppings
+    public Object getBasePriceOrSize(String pizzaType) {
+        switch (pizzaType.toLowerCase()) {
+            case "deluxe":
+            case "bbq chicken":
+            case "meatzza":
+                // Return size as a String for these types
+                return this.toString();
 
-    Size(double basePriceSize) {
-        this.basePriceSize = basePriceSize;
-    }
+            case "build your own":
+                // Return price for Build Your Own
+                switch (this) {
+                    case SMALL: return 8.99;
+                    case MEDIUM: return 10.99;
+                    case LARGE: return 12.99;
+                }
+                break;
 
-    public double getBasePriceSize() {
-
-        return basePriceSize;
+            default:
+                throw new IllegalArgumentException("Unknown pizza type: " + pizzaType);
+        }
+        return null; // Default case if something goes wrong
     }
 
     @Override

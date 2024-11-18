@@ -10,8 +10,7 @@ public class BuildYourOwn extends Pizza {
     public void addTopping(Topping topping) {
         if (toppings.size() < 7) {
             toppings.add(topping);
-        }
-        else {
+        } else {
             System.out.println("You can only add up to 7 toppings.");
         }
     }
@@ -22,15 +21,21 @@ public class BuildYourOwn extends Pizza {
 
     @Override
     public double price() {
-        double sizeprice = size.getBasePriceSize();
-        double subtotal = sizeprice + (TOPPING_PRICE * toppings.size());
+        // Get the base price from the Size enum for "build your own" pizzas
+        double sizePrice = size.getBasePriceOrSize("build your own") instanceof Double
+                ? (double) size.getBasePriceOrSize("build your own")
+                : 0.0;
+
+        // Add the price of toppings
+        double subtotal = sizePrice + (TOPPING_PRICE * toppings.size());
         return subtotal;
     }
 
     @Override
     public String toString() {
-        return "Build Your Own Pizza";
+        return "Build Your Own Pizza with " + toppings.size() + " toppings.";
     }
+}
 
 
 
@@ -47,4 +52,4 @@ public class BuildYourOwn extends Pizza {
     }
 
    */
-}
+
