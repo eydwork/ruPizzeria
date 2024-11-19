@@ -1,39 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="rupizzeria.controller.AllOrdersViewController">
-    <fx:include source="menu-bar-view.fxml"/>
+<AnchorPane prefHeight="531.0" prefWidth="912.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rupizzeria.controller.AllOrdersViewController">
 
-    <Text layoutX="264.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Overview">
-        <font>
-            <Font name="Cooper Black" size="48.0"/>
-        </font>
-    </Text>
-    <Button layoutX="296.0" layoutY="610.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="305.0"
-            text="Export into Text File">
-        <font>
-            <Font name="Cambria Bold" size="24.0"/>
-        </font>
-    </Button>
-    <TableView layoutX="75.0" layoutY="125.0" prefHeight="448.0" prefWidth="750.0">
-        <columns>
-            <TableColumn prefWidth="70.40001678466797" text="Order #"/>
-            <TableColumn maxWidth="329.6000061035156" minWidth="-1.0" prefWidth="181.60000610351562" text="Pizza">
-                <columns>
-                    <TableColumn prefWidth="75.19998168945312" text="Quantity"/>
-                    <TableColumn prefWidth="75.0" text="Type"/>
-                    <TableColumn prefWidth="75.0" text="Style"/>
-                </columns>
-            </TableColumn>
-            <TableColumn prefWidth="336.0000305175781" text="Order Total"/>
-            <TableColumn prefWidth="115.99997558593748" text="Cancel Order"/>
-        </columns>
-    </TableView>
+   <fx:include source="menu-bar-view.fxml" />
+   
+   <Label layoutX="303.0" layoutY="41.0" text="Employee Overview">
+      <font>
+         <Font name="Cooper Black" size="30.0" />
+      </font>
+   </Label>
+   <ListView fx:id="allOrdersListView" layoutX="65.0" layoutY="131.0" prefHeight="263.0" prefWidth="793.0" />
+   <ComboBox fx:id="orderNumberComboBox" layoutX="164.0" layoutY="92.0" prefWidth="150.0" scaleX="0.75" scaleY="0.75" />
+   <Label layoutX="91.0" layoutY="96.0" text="Order number" />
+   <Label layoutX="499.0" layoutY="96.0" text="Order Total (tax included) $" />
+   <TextArea fx:id="orderTotalTextArea" layoutX="634.0" layoutY="85.0" prefHeight="9.0" prefWidth="200.0" scaleX="0.75" scaleY="0.75" />
+   <Button fx:id="cancelOrderButton" layoutX="277.0" layoutY="412.0" mnemonicParsing="false" onAction="#cancelOrderButton" text="Cancel Order" />
+   <Button fx:id="exportTextButton" layoutX="556.0" layoutY="412.0" mnemonicParsing="false" onAction="#exportTextButton" text="Export to text file" />
+   <TextArea fx:id="outputTextArea" layoutX="67.0" layoutY="454.0" prefHeight="67.0" prefWidth="793.0" />
+   <Label layoutX="77.0" layoutY="429.0" text="Output" />
 </AnchorPane>

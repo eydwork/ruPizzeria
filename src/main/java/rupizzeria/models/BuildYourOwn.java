@@ -22,9 +22,8 @@ public class BuildYourOwn extends Pizza {
     @Override
     public double price() {
         // Get the base price from the Size enum for "build your own" pizzas
-        double sizePrice = size.getBasePriceOrSize("build your own") instanceof Double
-                ? (double) size.getBasePriceOrSize("build your own")
-                : 0.0;
+        double sizePrice = size.getBasePriceOrSize("build your own")
+                != null ? (double) size.getBasePriceOrSize("build your own") : 0;
 
         // Add the price of toppings
         double subtotal = sizePrice + (TOPPING_PRICE * toppings.size());
@@ -37,19 +36,4 @@ public class BuildYourOwn extends Pizza {
     }
 }
 
-
-
-  /*  public static void main(String[] args) { //testing the class
-        BuildYourOwn byo = new BuildYourOwn(Crust.PAN, Size.MEDIUM);
-        byo.addTopping(Topping.SAUSAGE);
-        byo.addTopping(Topping.PEPPERONI);
-        byo.addTopping(Topping.GREEN_PEPPER);
-        byo.addTopping(Topping.ONION);
-        byo.addTopping(Topping.MUSHROOM);
-        byo.addTopping(Topping.OLIVE);
-        byo.addTopping(Topping.PINEAPPLE);
-        System.out.println(byo.price());
-    }
-
-   */
 

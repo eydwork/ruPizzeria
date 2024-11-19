@@ -1,25 +1,25 @@
 package rupizzeria.models;
 
-import java.util.ArrayList;
-
 public class Order {
-    private static int orderCounter = 1; // Static counter to generate unique order numbers
-    private int number;                  // Unique order number
-    private List<OrderItem> items;           // List of OrderItem objects
-    private static final double TAX_RATE = 0.06625; // New Jersey sales tax rate
+    private static final double TAX_RATE = 0.06625;
 
-    public Order() {
-        this.number = orderCounter++;    // Assign unique order number and increment counter
-        this.items = new List<>();
+    private int number; // Order number
+    private List<Pizza> pizzas; // List of pizzas in the order
+
+
+    public Order(int number) {
+        this.number = number; // Set the order number
+        this.pizzas = new List<>(); // Initialize the list of pizzas
     }
 
     public int getOrderNumber() { //used to get order number
         return number;
     }
 
-    public List<OrderItem> getItems() { //used to get items
-        return items;
+    public List<Pizza> getPizzas() { //used to get list of pizzas
+        return pizzas;
     }
+
 
     /**
      * Returns the order number formatted as a 4-digit string with leading zeros.
@@ -29,28 +29,21 @@ public class Order {
         return String.format("%04d", this.number);
     }
 
-    public void addPizza(Pizza pizza, int quantity) {
-        // Check if the same pizza already exists in the order
-        for (OrderItem item : items) {
-            if (item.getPizza().equals(pizza)) {
-                item.incrementQuantity(quantity); // Increase quantity if pizza is already in the order
-                return;
-            }
+    // Method to add a pizza to the order
+    public void addPizza(Pizza pizza) {
+        if (pizza != null) {
+            pizzas.add(pizza);
         }
-        // Otherwise, create a new OrderItem
-        OrderItem newItem = new OrderItem(pizza);
-        newItem.incrementQuantity(quantity - 1); // Adjust quantity (already starts at 1)
-        items.add(newItem);
     }
 
     public void removePizza(Pizza pizza) {
-        items.remove(new OrderItem(pizza));
+        pizzas.remove(pizza);
     }
 
     public double calculateSubtotal() {
         double subtotal = 0;
-        for (OrderItem item : items) {
-            subtotal += item.calculateSubtotal();
+        for (Pizza pizza : pizzas) {
+            subtotal += pizza.price();
         }
         return subtotal;
     }
@@ -68,8 +61,8 @@ public class Order {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Order Number: ").append(getFormattedOrderNumber()).append("\n");
-        for (OrderItem item : items) {
-            sb.append(item).append("\n");
+        for (Pizza pizza : pizzas) {
+            sb.append(pizza).append("\n");
         }
         sb.append("Subtotal: $").append(String.format("%.2f", calculateSubtotal())).append("\n");
         sb.append("Tax: $").append(String.format("%.2f", calculateTax())).append("\n");

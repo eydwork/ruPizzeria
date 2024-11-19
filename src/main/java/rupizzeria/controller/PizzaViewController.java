@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class PizzaViewController {
+    public static int orderNumber = 1;
     public TextArea toppingsListTextArea;
     public TextArea outputTextArea; // TextArea to display output messages
     public TextArea subtotalTextArea;
@@ -65,9 +66,9 @@ public class PizzaViewController {
     private Image newYorkMeatzzaImage;
     private Image newYorkBYOImage;
 
-
-    private Order order = new Order(); // Order instance to store pizzas
     private PizzaFactory pizzaFactory; // Factory for creating pizzas
+
+    private Order order;
 
     public void initialize() {
 
@@ -75,6 +76,7 @@ public class PizzaViewController {
         sizeComboBox.setItems(sizes);
         sizeComboBox.setOnAction(event -> handleSizeSelection());
 
+        order = new Order(orderNumber++);
 
         // Initialize the ToggleGroup for pizza style
         styleToggleGroup = new ToggleGroup();
@@ -283,7 +285,7 @@ public class PizzaViewController {
         String style = (pizzaFactory instanceof ChicagoPizza) ? "Chicago" : "New York";
 
         // Add the pizza to the order
-        order.addPizza(pizza, 1);
+        order.addPizza(pizza);
 
         outputTextArea.setText("Order submitted: " + pizza + " (" + style + " Style)");
 
@@ -377,6 +379,7 @@ public class PizzaViewController {
 
                         // Update subtotal dynamically
                         updateSubtotalTextArea();
+
                     }
                 });
             }
@@ -407,6 +410,9 @@ public class PizzaViewController {
 
             // Get the current stage
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+            FinalizeViewController finalizeViewController = loader.getController();
+            finalizeViewController.setOrder(order);
 
             // Set the new scene
             Scene scene = new Scene(root);

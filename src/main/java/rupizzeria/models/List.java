@@ -105,6 +105,12 @@ public class List<E> implements Iterable<E> { //general list class that can be u
         size = 0;
     }
 
+    public void addAll(List<E> e) {
+        for (E object : e) {
+            add(object);
+        }
+    }
+
     // Inner class implementing Iterator for appointments
     private class ListIterator implements Iterator<E> {
         private int currentIndex = 0;
